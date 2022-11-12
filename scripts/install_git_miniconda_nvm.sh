@@ -19,7 +19,7 @@ sudo -u $USERNAME ssh-keygen -t ed25519 -C "$HOSTNAME" -N "" -q -f /home/$USERNA
 
 # setup miniconda
 url="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"
-target="/home/$USERNAME//Downloads/$(parse_url $url)"
+target="/home/$USERNAME/Downloads/$(parse_url $url)"
 sudo -u $USERNAME mkdir /home/$USERNAME/Downloads
 
 sudo -u $USERNAME curl "$url" --output "$target"
