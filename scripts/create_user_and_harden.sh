@@ -14,7 +14,7 @@ sudo -u $USER chmod 600 "/home/$USER/.ssh/authorized_keys"
 echo "[x] ssh keys installed"
 
 # remove root permissions
-sed -i 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config /etc/ssh/sshd_config
-sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config /etc/ssh/sshd_config
-/etc/init.d/ssh restart
-echo "[x] password access and root access removed"
+# sed -i 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config /etc/ssh/sshd_config
+# sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config /etc/ssh/sshd_config
+# /etc/init.d/ssh restart
+# echo "[x] password access and root access removed"
