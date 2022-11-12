@@ -5,7 +5,7 @@ parse_url() {
     if [ -z $LINODE_ID]; then
         echo "${1##*/}"
     else
-        echo "$${1##*/}"
+        echo "${1##*/}"
     fi
 }
 
