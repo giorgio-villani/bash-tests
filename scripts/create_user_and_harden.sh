@@ -8,7 +8,7 @@ passwd -d $USER
 # setup key login
 sudo -u $USER mkdir -p "/home/$USER/.ssh"
 sudo -u $USER chmod 700 "/home/$USER/.ssh"
-sudo -u $USER echo '$SSH_KEY' > "/home/$USER/.ssh/authorized_keys"
+sudo -u $USER echo "$SSH_KEY" > "/home/$USER/.ssh/authorized_keys"
 chown $USER "/home/$USER/.ssh/authorized_keys"
 sudo -u $USER chmod 600 "/home/$USER/.ssh/authorized_keys"
 echo "[x] ssh keys installed"
