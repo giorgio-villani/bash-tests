@@ -1,16 +1,16 @@
 #!/bin/bash
 
-echo "creating user $USER"
-adduser --disabled-login --gecos '' --shell /bin/bash $USER
-usermod -aG sudo $USER
-passwd -d $USER
+echo "creating user $USERNAME"
+adduser --disabled-login --gecos '' --shell /bin/bash $USERNAME
+usermod -aG sudo $USERNAME
+passwd -d $USERNAME
 
 # setup key login
-sudo -u $USER mkdir -p "/home/$USER/.ssh"
-sudo -u $USER chmod 700 "/home/$USER/.ssh"
-sudo -u $USER echo "$SSH_KEY" > "/home/$USER/.ssh/authorized_keys"
-chown $USER "/home/$USER/.ssh/authorized_keys"
-sudo -u $USER chmod 600 "/home/$USER/.ssh/authorized_keys"
+sudo -u $USERNAME mkdir -p "/home/$USERNAME/.ssh"
+sudo -u $USERNAME chmod 700 "/home/$USERNAME/.ssh"
+sudo -u $USERNAME echo "$SSH_KEY" > "/home/$USERNAME/.ssh/authorized_keys"
+chown $USERNAME "/home/$USERNAME/.ssh/authorized_keys"
+sudo -u $USERNAME chmod 600 "/home/$USERNAME/.ssh/authorized_keys"
 echo "[x] ssh keys installed"
 
 # remove root permissions
