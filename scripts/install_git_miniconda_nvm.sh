@@ -23,13 +23,13 @@ target="/home/$USERNAME//Downloads/$(parse_url $url)"
 sudo -u $USERNAME mkdir /home/$USERNAME/Downloads
 
 sudo -u $USERNAME curl "$url" --output "$target"
-sudo -u $USERNAME bash "$target" -b -p "/home/$USERNAME//miniconda"
+sudo -u $USERNAME bash "$target" -b -p "/home/$USERNAME/miniconda"
 sudo -u $USERNAME /home/$USERNAME/miniconda/condabin/conda init
 sudo -u $USERNAME /home/$USERNAME/miniconda/condabin/conda create --name py39 -y python=3.9
 
 # setup nvm
 url="https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh"
-target="/home/$USERNAME//Downloads/$(parse_url $url)"
+target="/home/$USERNAME/Downloads/$(parse_url $url)"
 
 sudo -u $USERNAME curl "$url" --output "$target"
 sudo -u $USERNAME bash "$target" -b -p "/home/$USERNAME/nvm/v0.39.2/install.sh"
