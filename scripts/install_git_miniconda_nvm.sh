@@ -9,11 +9,13 @@ parse_url() {
     fi
 }
 
+echo "Running Setup on: " $USERNAME
+
 # setup git
 sudo -u $USERNAME git config --global user.name "$GITHUB_NAME"
 sudo -u $USERNAME git config --global user.email "$GITHUB_EMAIL"
 sudo -u $USERNAME git config --global core.editor vim
-sudo -u $USERNAME ssh-keygen -t ed25519 -C "$HOSTNAME" -N "" -q -f ~/.ssh/id_ed25519 <<< "y"
+sudo -u $USERNAME ssh-keygen -t ed25519 -C "$HOSTNAME" -N "" -q -f /home/$USERNAME/.ssh/id_ed25519 <<< "y"
 
 # setup miniconda
 url="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"
