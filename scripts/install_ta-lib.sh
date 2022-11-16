@@ -16,21 +16,21 @@ echo $url
 echo $target_directory
 echo $target
 
-mkdir /home/$USERNAME/Downloads
+sudo -u $USERNAME mkdir /home/$USERNAME/Downloads
 
-wget "$url" -P "$target_directory"
-sudo tar -xzf $target --directory /home/$USERNAME/
+sudo -u $USERNAME wget "$url" -P "$target_directory"
+sudo -u $USERNAME tar -xzf $target --directory /home/$USERNAME/
 
-# pip3 install --upgrade pip
-# sudo apt-get install gcc
-# sudo apt-get install -y make
+sudo -u $USERNAME pip3 install --upgrade pip
+sudo -u $USERNAME apt-get -y install gcc
+sudo -u $USERNAME apt-get install -y make
 
 cd /home/$USERNAME/ta-lib/
 
-sudo ./configure --prefix=/usr
-sudo make
-sudo make install
+sudo -u $USERNAME ./configure --prefix=/usr
+sudo -u $USERNAME make
+sudo -u $USERNAME make install
 
 cd ~
-sudo rm -rf ta-lib/
-pip install ta-lib
+sudo -u $USERNAME rm -rf ta-lib/
+sudo -u $USERNAME pip install ta-lib
