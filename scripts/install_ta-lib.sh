@@ -16,21 +16,20 @@ echo $url
 echo $target_directory
 echo $target
 
-sudo -u $USERNAME mkdir /home/$USERNAME/Downloads
+# sudo -u $USERNAME mkdir /home/$USERNAME/Downloads
 
-sudo -u $USERNAME wget "$url" -P "$target_directory"
+sudo -u $USERNAME wget $url -P $target_directory
 sudo -u $USERNAME tar -xzf $target --directory /home/$USERNAME/
 
-sudo -u $USERNAME pip3 install --upgrade pip
-sudo -u $USERNAME apt-get -y install gcc
-sudo -u $USERNAME apt-get install -y make
+pip_loc="/home/$USERNAME/miniconda/envs/$PY_ENV/bin/pip3"
+ta_lib_directory="/home/$USERNAME/ta-lib/"
 
-cd /home/$USERNAME/ta-lib/
+sudo -u $USERNAME $pip_loc install --upgrade pip
+cd $ta_lib_directory
 
-sudo -u $USERNAME ./configure --prefix=/usr
-sudo -u $USERNAME make
-sudo -u $USERNAME make install
+./configure --prefix=/usr
+make
+make install
 
-cd ~
-sudo -u $USERNAME rm -rf ta-lib/
-sudo -u $USERNAME pip install ta-lib
+rm -rf $ta_lib_directory
+sudo -u $USERNAME $pip_loc install ta-lib
