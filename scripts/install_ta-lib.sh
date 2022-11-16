@@ -31,7 +31,6 @@ cd $ta_lib_directory
 make
 make install
 
-
 sudo -u $USERNAME $pip_loc install ta-lib
 rm -rf $ta_lib_directory
 cd ~
